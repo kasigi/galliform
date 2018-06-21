@@ -15,3 +15,18 @@
  * Author:            Tor N. Johnson
  * License:           GPL-3.0+
  */
+
+
+
+function galliform_init(){
+	require_once('data-structures/postTypes.php');
+	require_once('data-structures/taxonomy.php');
+	require_once('galliform-interface.php');
+}
+
+add_action( 'init', 'galliform_init', 0 );
+
+
+
+
+
