@@ -5,7 +5,8 @@ function galliform_interface_shortcode(){
 	$galliformInterface = "";
 	$galliformInterface .= "<section><h1>Galliform: Create QA Registry</h1>";
 
-    $galliformInterface .= "<form method='post' action=''>";
+    $galliformInterface .= "<form method='post' action='".esc_url( admin_url('admin-post.php') )."'>";
+    $galliformInterface .= "<input type=\"hidden\" name=\"action\" value=\"galliform_selection\">";
 
     $galliformInterface .= "<label for='gatitle'>Name of Project</label><input type='text' id='gatitle'>";
 
@@ -16,7 +17,7 @@ function galliform_interface_shortcode(){
 
     $galliformInterface.= "<fieldset>";
         foreach($groups as $group){
-            $galliformInterface.= "<input type='checkbox' name='qagroup' value='".$group->slug."' id='".$group->slug."'><label for='".$group->slug."'>".$group->name."</label>";
+            $galliformInterface.= "<input type='checkbox' name='qagroup[]' value='".$group->slug."' id='".$group->slug."'><label for='".$group->slug."'>".$group->name."</label>";
         }
     $galliformInterface.= "</fieldset>";
 
